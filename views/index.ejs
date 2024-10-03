@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DESIGNBREW</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-    <img src="" alt="logo">
-    <%- include('./partials/_navbar.ejs')%>
-    <img scr="" alt="hero art">
+    <div class="logo-Navbar">
+    <img class="logoImage" src="https://i.postimg.cc/8Czg7gpx/Design-BRew-1.png" alt="logo">
+    <div class="header">
+    <%- include('./partials/_navbar.ejs') %>
+    </div>
+    </div>
+    <div class="hero-image">
+        <div class="hero-text">
     <h1>Brewing up bold inspirations for your home!</h1>
-    <button>Lest Start Brewing</button>
+    <button id="brewButton">Lest Start Brewing</button>
+    </div>
+    </div>
+
     <p>Welcome to DESIGNBREW, your ultimate hub for collecting and organizing home design ideas. 
         Join our vibrant community, where you can share your inspirations, like each others posts,
          and connect with fellow design enthusiasts. Together, lets celebrate creativity and turn our visions into beautiful realities!</p>

@@ -3,15 +3,19 @@ dotenv.config()
 const express = require('express');
 const app =express();
 const mongoose = require('mongoose'); 
-const methodOverride =require('method-override')
+const methodOverride = require('method-override')
 const morgan = require('morgan'); 
 const path = require('path');
 const session = require('express-session'); 
 
-const authController = require('./controllers/auth.js');
-const inspoBoardController = require('./controllers/inspirationboards.js');
+const isSignedIn = require('./middleware/is-signed-in.js');
+const passUserToView = require('./middleware/pass-user-to-view.js');
 
-const port = process.env.PORT ?  process.env.PORT : '3000';
+const authController = require('./controllers/auth.js');
+const inspoBoardController = require('./controllers/inspo.js');
+
+
+const port = process.env.PORT ?  process.env.PORT : '4000';
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -19,12 +23,12 @@ mongoose.connection.on ('connected', () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name},`);
 });
 
+//-------middleware----------//
+
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
-
-app.use('/auth', authController);
-
+app.use(express.static(path.join(__dirname, "public")))
 
 app.use(
   session({
@@ -34,12 +38,17 @@ app.use(
   })
 );
 
+
+
+app.use(passUserToView);
+app.use('/auth', authController);
+app.use('/users/:userId/inspiration', inspoBoardController);
+
 app.get('/', (req,res) => { 
-    res.render('index.ejs', {
-        user: req.session.user,
-    });
+    res.render('index.ejs')
 });
 
+app.use(isSignedIn);
 
 app.listen(port, ()=> {
     console.log(`The express app is ready on port ${port}!`);

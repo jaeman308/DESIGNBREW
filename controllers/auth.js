@@ -13,13 +13,13 @@ router.get('/sign-in', (req, res) => {
 });
 
 router.get('/sign-out', (req, res) => {
-    req.session.destory();
+    req.session.destroy();
     res.redirect('/');
 });
 
 router.post('/sign-up', async (req, res) => {
     try {
-        const userInDatabase = await User.findOne({username: req.body.username });
+        const userInDatabase = await User.findOne({ username: req.body.username });
         if (userInDatabase) {
             return res.send('Username already taken.');
         }
@@ -27,8 +27,10 @@ router.post('/sign-up', async (req, res) => {
         if (req.body.password !== req.body.confirmPassword){
             return res.send('Passwords dont match.');
         }
-        const hashPassword = bcrypt.hashSync(req.body.password, 10);
-        await User.creat(req.body);
+        const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+        req.body.password = hashedPassword;
+
+        await User.create(req.body);
 
         res.redirect('/auth/sig-in');
     } catch (error) {
@@ -39,7 +41,7 @@ router.post('/sign-up', async (req, res) => {
 
 router.post('/sig-in', async (req,res) => {
     try {
-        const userInDatabase = await User.findOne({username: req.body.username });
+        const userInDatabase = await User.findOne({ username: req.body.username });
         if (!userInDatabase) {
             return res.send('login failed. Please try again.');
         };
