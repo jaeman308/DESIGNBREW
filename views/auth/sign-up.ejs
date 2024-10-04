@@ -14,9 +14,12 @@
         </div>
         </div>
         <div class="signUpform">
-            <form action="/auth/sign-up" method="POST">
+            <form action="/auth/sign-up" method="POST"  enctype="multipart/form-data">
             <label for="username">Username:</label>
-            <input type="text" placeholder="Enter Username" id="username" required />
+            <input type="text" name="username" placeholder="Enter Username" id="username" required />
+            <br/>
+            <label for="name">Name:</label>
+            <input type="text" name="name" placeholder="Enter name" id="name" required />
             <br/>
             <label for="email">Email</label>
             <input type="text" placeholder="Enter Email" name="email" required>
@@ -33,8 +36,8 @@
               required 
             />
             <br/>
-            <label for="profilepicture">Profile Picture</label>
-            <input type="file" name="profilepicture" id="profilepicture">
+            <label for="profilePicture">Profile Picture</label>
+            <input type="file" name="profilePicture" id="profilePicture" required/>
             <br/>
             <button type="submit">Sign up</button>
           </form>

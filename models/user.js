@@ -1,10 +1,38 @@
 const mongoose = require('mongoose');
 
+const boardSchema = mongoose.Schema ({
+    room:  {
+        type: String, 
+        required: true,
+    },
+    Category: {
+        type: String,
+        enum: [ 'Modern', 'Contemporary', 'Traditional', 'Rustic', 'Industrial', 'Scandinavian', 
+        'Bohemian', 'Mid-Century Modern', 'Transitional', 'Art Deco', 'Farmhouse', 'Mediterranean',
+        'Electic', 'Vinatage', 'Orangic Modern', 'Minimalist'],
+    },
+    image: {
+        type: String,
+        required: true, 
+    },
+    description: {
+        type: String, 
+        required: true,
+
+    },
+});
+
 const userSchema = mongoose.Schema({
   username: {
     type: String,
     required: true,
   },
+  
+  name: {
+    type: String,
+    required: true,
+  }, 
+
   password: {
     type: String,
     required: true,
@@ -17,6 +45,9 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true, 
   },
+  
+  boards: [boardSchema],
+
 });
 
 const User = mongoose.model('User', userSchema);

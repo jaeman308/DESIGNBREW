@@ -1,21 +1,35 @@
+//-------------imports-------------//
 const dotenv = require('dotenv');
 dotenv.config()
 const express = require('express');
-const app =express();
+const app = express();
 const mongoose = require('mongoose'); 
 const methodOverride = require('method-override')
 const morgan = require('morgan'); 
 const path = require('path');
 const session = require('express-session'); 
+const multer = require('multer')
+const upload= multer({ dest: 'uploads/',
+    limits: { fileSize: 5 * 1024 * 1024 }, 
+    fileFilter: (req, file, cb) => {
+        if (file.fieldname === 'profilePicture') {
+            cb(null, true); 
+        } else {
+            cb(new multer.MulterError('Unexpected field'), false);
+        }
+    }});
+
+
+
 
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 
 const authController = require('./controllers/auth.js');
-const inspoBoardController = require('./controllers/inspo.js');
+const boardController = require('./controllers/boards.js');
 
 
-const port = process.env.PORT ?  process.env.PORT : '4000';
+const port = process.env.PORT || '4000';
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -39,16 +53,19 @@ app.use(
 );
 
 
-
+//---------Routes------------//
 app.use(passUserToView);
-app.use('/auth', authController);
-app.use('/users/:userId/inspiration', inspoBoardController);
 
-app.get('/', (req,res) => { 
-    res.render('index.ejs')
+app.get('/', (req,res) => {
+    res.render('index.ejs');
 });
 
+app.use('/auth', authController);
 app.use(isSignedIn);
+app.use('/users', boardController)
+
+
+
 
 app.listen(port, ()=> {
     console.log(`The express app is ready on port ${port}!`);

@@ -1,8 +1,8 @@
 <nav>
     <a href="/">Home</a>
     <% if(user) { %>
-      <a href="/users/<%=user._id%>/inspiration">View My Pantry</a>
-      <a href="/users/<%=user._id%>/inspiration/new">Add New Food</a>
+      <a href="/users/<%= user._id%>/boards">MY Boards</a>
+      <a href="/users/<%= user._id%>/boards/new">Brew New Inspirations</a>
       <a href="/auth/sign-out">Sign Out</a>
     <% } else { %>
       <a href="/auth/sign-in">Sign In</a>
