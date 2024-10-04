@@ -20,9 +20,48 @@
     </div>
     </div>
 
-    <p>Welcome to DESIGNBREW, your ultimate hub for collecting and organizing home design ideas. 
+    <div class="bottomPage">
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <img src="https://i.postimg.cc/prQqT5Zb/Industrial-Interior-style.jpg" style="width: 90%" style="height: 100%">
+          <div class="text"></div>
+        </div>
+      
+        <div class="mySlides fade">
+          <img src="https://i.postimg.cc/FsKyM6LV/transitional-design.jpg" style="width: 90%" style="height: 100%">
+          <div class="text"></div>
+        </div>
+      
+        <div class="mySlides fade">
+          <img src="https://i.postimg.cc/Znn1vcWt/organic-modern-kitchen.png" style="width: 90%" style="height: 100%">
+          <div class="text"></div>
+        </div>
+
+      </div>
+
+        <p class="description">Welcome to DESIGNBREW, your ultimate hub for collecting and organizing home design ideas. 
         Join our vibrant community, where you can share your inspirations, like each others posts,
          and connect with fellow design enthusiasts. Together, lets celebrate creativity and turn our visions into beautiful realities!</p>
+         </div>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 4000); 
+}
+</script>
     
 </body>
 </html>

@@ -12,6 +12,33 @@
         <div class="header">
         <%- include('../partials/_navbar.ejs') %>
         </div>
-    
+        </div>
+        <div class="signUpform">
+            <form action="/auth/sign-up" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" placeholder="Enter Username" id="username" required />
+            <br/>
+            <label for="email">Email</label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+            <br/>
+            <label for="password">Password:</label>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required />
+            <br/>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input 
+              type="password"
+              placeholder="Confirm Password"
+              name="confirmPassword"
+              id="confirmPassword"
+              required 
+            />
+            <br/>
+            <label for="profilepicture">Profile Picture</label>
+            <input type="file" name="profilepicture" id="profilepicture">
+            <br/>
+            <button type="submit">Sign up</button>
+          </form>
+          <img id="frenchImage" src="https://i.postimg.cc/zXd71dHN/artdeco-french.webp " alt="frenchartdeco">
+          </div>
 </body>
 </html>
