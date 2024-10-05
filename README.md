@@ -12,7 +12,7 @@
 
 ## Getting Started: 
 ###  Repo Link
->https://github.com/jaeman308/DESIGNBREW
+>https://github.com/jaeman308/designbrew
 
 ### DEPLOY Link
 >https://designbrew-eacac9f5d92b.herokuapp.com/
