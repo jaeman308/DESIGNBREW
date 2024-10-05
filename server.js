@@ -9,12 +9,11 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session'); 
 const multer = require('multer')
-const upload= multer({
-    dest: 'uploads/',
+const upload = multer({dest: 'uploads/',
     limits: { fileSize: 5 * 1024 * 1024 },
     fileFilter: (req, file, cb) => {
         const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        if (file.fieldname === 'image' && allowedTypes.includes(file.mimetype)) {
+        if (allowedTypes.includes(file.mimetype) && (file.fieldname === 'image'|| file.fieldname === 'profilePicture')) {
             cb(null, true);
         } else {
             cb(new multer.MulterError('Unexpected field or file type'), false);
@@ -23,13 +22,12 @@ const upload= multer({
 });
 
 
-
-
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 
 const authController = require('./controllers/auth.js');
 const boardController = require('./controllers/boards.js');
+const allusersController =require('./controllers/alluser.js')
 
 
 const port = process.env.PORT || '4000';
@@ -66,7 +64,8 @@ app.get('/', (req,res) => {
 
 app.use('/auth', authController);
 app.use(isSignedIn);
-app.use('/users', boardController)
+app.use('/allusers', allusersController);
+app.use('/users', boardController);
 
 
 

@@ -6,7 +6,7 @@ const upload = multer({dest: 'uploads/',
     limits: { fileSize: 5 * 1024 * 1024 },
     fileFilter: (req, file, cb) => {
         const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        if (file.fieldname === 'image' && allowedTypes.includes(file.mimetype)) {
+        if (allowedTypes.includes(file.mimetype) && (file.fieldname === 'image'|| file.fieldname === 'profilePicture')) {
             cb(null, true);
         } else {
             cb(new multer.MulterError('Unexpected field or file type'), false);
@@ -21,6 +21,8 @@ router.get('/:userId/boards', async (req, res) => {
             boards: user.boards,
             userName: user.name,
             userId: user._id,
+            profilePicture: user.profilePicture
+            
         });
     } catch (error) {
         console.log(error);
@@ -48,6 +50,16 @@ router.get('/:userId/boards/:boardId/edit', async (req,res) => {
             board: boardItem,
             userId: currentUser._id
         });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id).populate('boards');
+               res.render('allusers/show.ejs', { user, boards: user.boards });
     } catch (error) {
         console.log(error);
         res.redirect('/');

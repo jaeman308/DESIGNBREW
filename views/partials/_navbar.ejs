@@ -3,6 +3,7 @@
     <% if(user) { %>
       <a href="/users/<%= user._id%>/boards">MY Boards</a>
       <a href="/users/<%= user._id%>/boards/new">Brew New Inspirations</a>
+      <a href="/allusers">Explore Our Community</a>
       <a href="/auth/sign-out">Sign Out</a>
     <% } else { %>
       <a href="/auth/sign-in">Sign In</a>
