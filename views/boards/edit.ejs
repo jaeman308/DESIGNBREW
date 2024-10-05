@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit DESIGNBREW</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
@@ -13,13 +13,12 @@
         <%- include('../partials/_navbar.ejs') %>
         </div>
         </div>
-    <h1>Edit your boards here </h1>
-    <div>
+    <h1>Edit your brew!</h1>
+        <div class="editPost">
         <% if (board.image) { %>
             <img class="inspoImage" src="/uploads/<%= board.image %>" alt="Board Image" style="max-width: 200px;"><br>
         <% } %>
-        </div>
-    <form action="/users/<%= userId %>/boards/<%= board._id %>" method="PUT" enctype="multipart/form-data">
+        <form action="/users/<%= userId %>/boards/<%= board._id %>" method="PUT" enctype="multipart/form-data">
         <input type="text" name="room" id="room" value="<%= board.room %>" required />
         <br />
         <select name="category" id="category">
@@ -44,8 +43,9 @@
         <br />
         <textarea name="description" id="description" required placeholder="Describe the design..."><%= board.description %></textarea>
         <br />
-        <button type="submit">Update Board</button>
+        <button class="updateButton" type="submit">Update Board</button>
     </form>
+</div>
 
 </body>
 </html>

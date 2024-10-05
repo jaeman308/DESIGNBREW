@@ -13,7 +13,9 @@
         <%- include('../partials/_navbar.ejs') %>
         </div>
         </div>
-    
+    <div class="newPost">
+        <div class="square2"></div>
+    <div class="main2">
         <form action="/users/<%= userId %>/boards" method="POST" enctype="multipart/form-data">
 
             <input type="text" name="room" id="room" placeholder="Living Room, Bedroom etc." required/>
@@ -40,8 +42,10 @@
             <br/>
             <textarea name="description" id="description" required placeholder="Describe the design..."></textarea>
             <br/>
-            <button type="submit">Brewing in progress! Upload Now!</button>
+            <button class="newpostButton" type="submit">Brewing in progress! Upload Now!</button>
         </form>
+        </div>
+        </div>
       
 
 </body>

@@ -14,12 +14,24 @@
     font-weight: 300;
     font-style: normal;
   }
+  :root {
+    --offwhite: #f3f0e6;
+    --olive: #628474 ;
+    --taupe: #b4a594;
+    --terracotta:#b25d3e;
+  }
 
   body, html{
     font-family: "Fira Sans", sans-serif;
     height: 100%;
     background-color: #f3f0e6;
   }
+
+  h1 {
+    font-size: 48px;
+    font-family:"Playfair Display", serif;
+  }
+
   .logo-Navbar{
     display: flex;
     flex-wrap: no-wrap;
@@ -33,6 +45,27 @@
     height: 15%;
     float: left;
   }
+  .navbar a{
+    color: var(--olive);
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: back-ground-color 0.3s;
+  }
+  .navbar a:hover {
+    background-color: #555; 
+    border-radius: 4px; 
+  }
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .navbar a {
+        margin-bottom: 10px;
+    }
+}
 
   .header li a { 
    color: black;
@@ -68,14 +101,6 @@
 
   }
   
-  #brewButton {
-    background-color: #bd916f;
-    border-radius: 20px;
-    border-color: #5a5045;
-    font-size: 15px;
-  }
-
-
 .bottomPage{
     display: flex;
     flex-wrap: nowrap;
@@ -94,6 +119,7 @@
   position: relative;
   margin: auto; 
   box-sizing: border;
+
 }
 
 .mySlides {
@@ -135,17 +161,6 @@
   text-align: center;
 }
 
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
 .active, .dot:hover {
   background-color: #717171;
 }
@@ -171,6 +186,9 @@
     float: right;
 }
 
+
+/*signup.ejs*/
+
 .signUpPage{
     display: flex;
 
@@ -182,13 +200,261 @@
     justify-content: center;
     align-items: center;
 }
+
+.signUpform input[type="text"],
+ .signUpform input[type="password"] {
+border-radius: 8px;
+padding: 8px;
+border: 1px solid #ccc;
+}
+
 #frenchImage {
     max-width: 20%;
     max-height: 20%;
+    border-radius: 40px;
     
+}
+.signup-button{
+  border-radius: 20px;
+  background-color: var(--terracotta);
+  font-size: 15px;
+  cursor: pointer;
+  color: var(--offwhite);
+  font-weight: bold;
 }
 
 .inspoImage {
   border-radius: 5px;
+
+}
+
+
+/* Sign-in.ejs */
+
+.signinBodycontainer {
+  display: flex;
+  flex: wrap;
+  align-content:center;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: auto;
   
+
+}
+.signIn {
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.signIn input[type="text"],
+ .signIn input[type="password"] {
+border-radius: 8px;
+padding: 8px;
+border: 1px solid #ccc;
+background-color: #b25d3e;
+}
+
+.signIn h2 {
+  font-family:"Playfair Display", serif;
+}
+
+.signIn input[type="text"]:focus,
+ .signIn input[type="password"]:focus {
+border-color: #b25d3e;
+outline: none;
+}
+
+.signInButton {
+  border-radius: 20px;
+  background-color: var(--terracotta);
+  font-size: 15px;
+  cursor: pointer;
+  color: var(--offwhite);
+  font-weight: bold;
+
+}
+.registernow {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  }
+
+  .main h2 {
+    font-family: "Playfair Display", serif;
+  }
+  .registerNowButton{
+    border-radius: 20px;
+    background-color: var(--terracotta);
+    font-size: 15px;
+    cursor: pointer;
+    color: var(--offwhite);
+    font-weight: bold;
+  
+  }
+
+.square {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  z-index: 0;
+  border-radius: 40px;
+  background: linear-gradient(0.25turn,#b4a594,#dAd1c6, #decbbe);
+}
+
+.main {
+  position:relative;
+  z-index: 1;
+  width: 300px;
+  min-height: 60px;
+  margin: 100px;
+  padding 20px;
+}
+
+
+/* boards index.ejs */
+.inspoBoard ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+  align-items:flex-start;
+
+}
+
+.inspoBoard li{
+  list-style: none;
+  margin: 10px;
+  border: 2px solid var(--olive);
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  border-radius: 8px;
+
+}
+
+.inspoImage {
+  max-width: 100%;
+  height: auto;
+}
+
+.deleteButton {
+  border-radius: 20px;
+  border-color: var(--taupe);
+  background-color: var(--taupe);
+  font-size: 15px;
+  cursor: pointer;
+  color: rgb(88, 86, 86);
+  font-weight: bold;
+
+}
+
+.editButton {
+  border-radius: 20px;
+  border-color: var(--taupe);
+  background-color: var(--taupe);
+  font-size: 15px;
+  cursor: pointer;
+  color: rgb(88, 86, 86);
+  font-weight: bold;
+}
+
+/* boards.new.ejs*/
+
+.newPost {
+ display: flex; 
+ justify-content: space-around;
+ align-items: center;
+ align-content: flex-start;
+}
+.newpostButton {
+  border-radius: 20px;
+  border-color: var(--taupe);
+  background-color: var(--terracotta);
+  font-size: 15px;
+  cursor: pointer;
+  color: rgb(88, 86, 86);
+  font-weight: bold;
+}
+
+.square2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  z-index: 0;
+  border-radius: 40px;
+  background: linear-gradient(0.25turn,#b4a594,#dAd1c6, #decbbe);
+}
+
+.main2 {
+  position:relative;
+  z-index: 1;
+  width: 300px;
+  min-height: 60px;
+  margin: 100px;
+  padding 20px;
+}
+
+/*edit.ejs*/
+
+.editPost {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  align-content: normal;
+  justify-content: center;
+  align-items: center;
+}
+
+.updateButton { 
+  border-radius: 20px;
+  border-color: var(--taupe);
+  background-color: var(--olive);
+  font-size: 15px;
+  cursor: pointer;
+  color: rgb(88, 86, 86);
+  font-weight: bold;
+
+}
+
+/* all users */
+
+.allusers ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.allusers a{
+  color: var(--terracotta);
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: back-ground-color 0.3s;
+}
+.allusers a:hover {
+  background-color: #555; 
+  border-radius: 4px; 
 }

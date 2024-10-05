@@ -13,12 +13,27 @@
         <%- include('../partials/_navbar.ejs') %>
         </div>
         </div>
+    <div class="signinBodycontainer"> 
+        <div class="signIn">   
+        <h2>SIGN-IN</h2>
     <form action="/auth/sign-in" method="POST">
         <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required />
+        <input type="text" name="username" id="username" class="username" required />
+        <br/>
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required />
-        <button type="submit">Sign In</button>
+        <input type="password" name="password" id="password" class="password" required />
+        <br/>
+        <button type="submit" class= "signInButton">Sign In</button>
     </form>
+     </div>
+<div class="registernow">
+    <div class="square"></div>
+    <div class="main">
+    <h2>SIGN-UP</h2>
+    <p>Create your account now to start brewing your inspirations</p>
+ <a href="/auth/sign-up"><button class="registerNowButton">Resgiter Now</button></a>
+ </div>
+ </div>
+</div>
 </body>
 </html>

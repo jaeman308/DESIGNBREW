@@ -13,13 +13,16 @@
         <%- include('../partials/_navbar.ejs') %>
         </div>
         </div>
-  
-    <h1>Explore Our Community</h1>
+        
+        <h1>THE DESIGNBREW COMMUNITY</h1>
+<div class="allusers">   
     <ul>
         <% users.forEach(user => { %>
             <li>
-                <a href="/allusers/<%= user._id %>"><%= user.username %></a>
+                <div><img class="profilepicture" src="https://i.postimg.cc/NGXLYP0C/WELCOME-TO-DESIGNBREW-1.png" alt="temp profile pic" style="max-width: 700px;"></div>
+                <div><a href="/allusers/<%= user._id %>"><%= user.username %></a></div>
             </li>
         <% }) %>
     </ul>
+</div>
 </body>
