@@ -9,15 +9,18 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session'); 
 const multer = require('multer')
-const upload= multer({ dest: 'uploads/',
-    limits: { fileSize: 5 * 1024 * 1024 }, 
+const upload= multer({
+    dest: 'uploads/',
+    limits: { fileSize: 5 * 1024 * 1024 },
     fileFilter: (req, file, cb) => {
-        if (file.fieldname === 'profilePicture') {
-            cb(null, true); 
+        const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+        if (file.fieldname === 'image' && allowedTypes.includes(file.mimetype)) {
+            cb(null, true);
         } else {
-            cb(new multer.MulterError('Unexpected field'), false);
+            cb(new multer.MulterError('Unexpected field or file type'), false);
         }
-    }});
+    }
+});
 
 
 
@@ -43,6 +46,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, "public")))
+app.use('/uploads', express.static('uploads')); 
 
 app.use(
   session({

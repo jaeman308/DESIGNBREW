@@ -7,9 +7,45 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-    <img src="" alt="logo">
-    <%- include('../partials/_navbar.ejs') %>
+    <div class="logo-Navbar">
+        <img class="logoImage" src="https://i.postimg.cc/8Czg7gpx/Design-BRew-1.png" alt="logo">
+        <div class="header">
+        <%- include('../partials/_navbar.ejs') %>
+        </div>
+        </div>
     <h1>Edit your boards here </h1>
-    
+    <div>
+        <% if (board.image) { %>
+            <img class="inspoImage" src="/uploads/<%= board.image %>" alt="Board Image" style="max-width: 200px;"><br>
+        <% } %>
+        </div>
+    <form action="/users/<%= userId %>/boards/<%= board._id %>" method="PUT" enctype="multipart/form-data">
+        <input type="text" name="room" id="room" value="<%= board.room %>" required />
+        <br />
+        <select name="category" id="category">
+            <option value="Modern" <%= board.category === 'Modern' ? 'selected' : '' %>>Modern</option>
+            <option value="Contemporary" <%= board.category === 'Contemporary' ? 'selected' : '' %>>Contemporary</option>
+            <option value="Traditional" <%= board.category === 'Traditional' ? 'selected' : '' %>>Traditional</option>
+            <option value="Rustic" <%= board.category === 'Rustic' ? 'selected' : '' %>>Rustic</option>
+            <option value="Industrial" <%= board.category === 'Industrial' ? 'selected' : '' %>>Industrial</option>
+            <option value="Scandinavian" <%= board.category === 'Scandinavian' ? 'selected' : '' %>>Scandinavian</option>
+            <option value="Bohemian" <%= board.category === 'Bohemian' ? 'selected' : '' %>>Bohemian</option>
+            <option value="Mid-Century Modern" <%= board.category === 'Mid-Century Modern' ? 'selected' : '' %>>Mid-Century Modern</option>
+            <option value="Transitional" <%= board.category === 'Transitional' ? 'selected' : '' %>>Transitional</option>
+            <option value="Art Deco" <%= board.category === 'Art Deco' ? 'selected' : '' %>>Art Deco</option>
+            <option value="Mediterranean" <%= board.category === 'Mediterranean' ? 'selected' : '' %>>Mediterranean</option>
+            <option value="Eclectic" <%= board.category === 'Eclectic' ? 'selected' : '' %>>Eclectic</option>
+            <option value="Vintage" <%= board.category === 'Vintage' ? 'selected' : '' %>>Vintage</option>
+            <option value="Organic Modern" <%= board.category === 'Organic Modern' ? 'selected' : '' %>>Organic Modern</option>
+            <option value="Minimalist" <%= board.category === 'Minimalist' ? 'selected' : '' %>>Minimalist</option>
+        </select>
+        <br />
+        <input type="file" name="image" id="image" accept="image/*" />
+        <br />
+        <textarea name="description" id="description" required placeholder="Describe the design..."><%= board.description %></textarea>
+        <br />
+        <button type="submit">Update Board</button>
+    </form>
+
 </body>
 </html>

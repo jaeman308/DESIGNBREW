@@ -9,7 +9,7 @@ const boardSchema = mongoose.Schema ({
         type: String,
         enum: [ 'Modern', 'Contemporary', 'Traditional', 'Rustic', 'Industrial', 'Scandinavian', 
         'Bohemian', 'Mid-Century Modern', 'Transitional', 'Art Deco', 'Farmhouse', 'Mediterranean',
-        'Electic', 'Vinatage', 'Orangic Modern', 'Minimalist'],
+        'Eclectic', 'Vintage', 'Orangic Modern', 'Minimalist'],
     },
     image: {
         type: String,

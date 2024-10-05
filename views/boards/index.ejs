@@ -14,6 +14,28 @@
         </div>
         </div>
         <h1> Welcome <%= userName %>!</h1>
-            
+        <ul>
+            <% if (boards && boards.length >0) {%>
+                <% boards.forEach((board) => {%>
+                    <li>
+                        Room: <%= board.room %>
+                        Category: <%= board.category%>
+                        Description: <%= board.description %>
+                        <% if (board.image) { %>
+                            <img class="inspoImage" src="/uploads/<%= board.image %>" alt="Board Image" style="max-width: 200px;"><br>
+                        <% } %>
+                        <form action="/users/<%= userId %>/boards/<%= board._id %>/edit" method="GET" style="display:inline">
+                            <button type="submit">Edit</button>
+                            </form>
+              
+                            <form action="/users/<%= userId %>/boards/<%= board._id %>?_method=DELETE" method="POST" style="display:inline">
+                            <button type="submit">Delete</button>
+                    </li>
+                    <% }) %>
+                    <% } else { %>
+                      <li>Start brewing up some inspirations!</li>
+                    <% } %>
+                  </ul>
+        </ul>
 </body>
 </html>
