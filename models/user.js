@@ -5,12 +5,14 @@ const boardSchema = mongoose.Schema ({
         type: String, 
         required: true,
     },
-    Category: {
+    category: {
         type: String,
         enum: [ 'Modern', 'Contemporary', 'Traditional', 'Rustic', 'Industrial', 'Scandinavian', 
         'Bohemian', 'Mid-Century Modern', 'Transitional', 'Art Deco', 'Farmhouse', 'Mediterranean',
         'Eclectic', 'Vintage', 'Orangic Modern', 'Minimalist'],
+        require: true,
     },
+
     image: {
         type: String,
         required: true, 
