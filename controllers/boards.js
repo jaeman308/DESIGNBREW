@@ -42,6 +42,23 @@ router.get('/:userId/boards/new', async (req, res) => {
     }
 });
 
+router.get('/:userId/boards/:boardId', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.userId);
+        const boardItem = currentUser.boards.id(req.param.boardId);
+        res.render('boards/show.ejs', {
+            boards: user.boards,
+            userName: user.name,
+            userId: user._id,
+            profilePicture: user.profilePicture
+        });
+        } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
+
+
 router.get('/:userId/boards/:boardId/edit', async (req,res) => {
     try{
         const currentUser = await User.findById(req.params.userId);
@@ -73,11 +90,11 @@ router.put('/:userId/boards/:boardId', upload.single('image'), async (req, res) 
 
         boardItem.room = req.body.room;
         boardItem.category = req.body.category;
+        boardItem.description = req.body.description;
 
         if (req.file) {
             boardItem.image = req.file.filename;
         }
-        boardItem.description = req.body.description;
 
         await currentUser.save();
         res.redirect(`/users/${currentUser._id}/boards/`);

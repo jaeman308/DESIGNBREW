@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+    <div class="logo-Navbar">
+        <img class="logoImage" src="https://i.postimg.cc/8Czg7gpx/Design-BRew-1.png" alt="logo">
+        <div class="header">
+        <%- include('../partials/_navbar.ejs') %>
+        </div>
+        </div>
+         <h1 class="profileH1"> Welcome <%= userName %>!</h1> 
+         <div class="inpsoBoard">   
+         <ul>
+            <% if (boards && boards.length >0) {%>
+                <% boards.forEach((board) => {%>
+                    <li>
+                        <div>Room: <%= board.room %> </div>
+                        <div>Category: <%= board.category %></div>
+                        <div>Description: <%= board.description %></div>
+                        <% if (board.image) { %>
+                            <img class="inspoImage" src="/uploads/<%= board.image %>" alt="Board Image" style="max-width: 200px;"><br>
+                        <% } %>
+                        <form action="/users/<%= userId %>/boards/<%= board._id %>/edit" method="GET" style="display:inline">
+                          <button class="editButton" type="submit">Edit</button>
+                        </form>
+              
+                        <form action="/users/<%= userId %>/boards/<%= board._id %>?_method=DELETE" method="POST" style="display:inline">
+                            <button class="deleteButton" type="submit">Delete</button>
+                        </form>
+                    </li>
+                 </div>
+</body>
+</html>
