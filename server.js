@@ -30,7 +30,7 @@ const boardController = require('./controllers/boards.js');
 const allusersController =require('./controllers/alluser.js')
 
 
-const port = process.env.PORT || '4000';
+const port = process.env.PORT || 4000;
 
 mongoose.connect(process.env.MONGODB_URI);
 
