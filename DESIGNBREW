@@ -1,0 +1,44 @@
+![DesignBRew](https://media.git.generalassemb.ly/user/53089/files/aeb0fde5-2f58-4377-85c8-a50277d7a754)
+
+
+## Project Description
+> An application were interior designers can come together and share their inspirations of design based on different design categories. 
+
+## Repo Link
+>https://github.com/jaeman308/DESIGNBREW
+
+## Trello Link
+> https://trello.com/invite/b/66fa0fc1f6a6b00c6b160e76/ATTI30aedc6fbf4b1a18a7977c7dc8ea46c10CFE7D85/designbrew
+
+## Wire Frames
+> 
+![Application project ideas (2)](https://media.git.generalassemb.ly/user/53089/files/f6a4a415-2885-48c2-adbd-dfb7e6962555)
+
+https://www.canva.com/design/DAGSG3XGnJY/qNUO9DVSy3lioAXBVhpnZg/edit?utm_content=DAGSG3XGnJY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+
+## ERD
+<img width="909" alt="Screenshot 2024-10-01 at 6 38 33 PM" src="https://media.git.generalassemb.ly/user/53089/files/9e7f8cfe-c319-4dc8-a8f2-c169fccbca92">
+
+
+## User Stories
+>AAU I should be able to use a form to add the inspo: Item name, category, upload image, description of the item. 
+>AAU Have a landing page that i will be able to see what the application intel's with images and a description with a join action button
+>AAU I want to have a sig-up and sign in pages
+>AAU i want to be able to have a page that i will be able to upload inspirations.
+>AAU I want to have an edit and update pages to edit post and to delete a post.
+>AAU I want to be able to see my inspirations based on categories.
+>AAU I want to be able to see a community page where i can like others users inspo pics.
+
+### MVP Goals
+> The app utilizes EJS Templates for rendering views to users.
+>The app uses session-based authentication.
+>The app’s files are organized following the conventions taught in lectures.
+>The app has at least one data entity in addition to the User model. At least one entity must have a relationship with the User model.
+>The app has full CRUD functionality.
+>Authorization is implemented in the app. Guest users (those not signed in) should not be able to create, update, or delete data in the application or access functionality allowing those actions.
+>The app is deployed online so that the rest of the world can use it.
+
+### Stretch Goals
+> Adding a banner feature were you can swift through photos. 
+> Pushing my limits to get the restful routes to be seamless. 

@@ -21,6 +21,8 @@
     --terracotta:#b25d3e;
   }
 
+  /* main html bodies for all pages */
+
   body, html{
     font-family: "Fira Sans", sans-serif;
     height: 100%;
@@ -67,6 +69,7 @@
     }
 }
 
+/* landing page */
   .header li a { 
    color: black;
    text-decoration: none;
@@ -74,7 +77,7 @@
   }
 
   .hero-image {
-    background-image: url("https://i.postimg.cc/q7yDBmnW/macenna-dinning-room.webp");
+    background-image: url("https://i.postimg.cc/RV1zv8Jd/macenna-dinning-room.webp");
     height: 50%;
     background-position: center;
     background-repeat: no-repeat;
