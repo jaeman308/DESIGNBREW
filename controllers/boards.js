@@ -46,7 +46,7 @@ router.get('/:userId/boards/:boardId', async (req, res) => {
     try {
         const currenUuser = await User.findById(req.params.userId);
         const boardItem = currentUser.boards.id(req.params.boardId);
-        res.render('boards/index.ejs')
+        res.render('boards/show.ejs')
         console.log(error);
         res.redirect('/');
     } catch (error) {
