@@ -43,7 +43,9 @@
         <br />
         <textarea name="description" id="description" required placeholder="Describe the design..."><%= board.description %></textarea>
         <br />
+        <form action="/users/<%= userId %>/boards" method="POST" enctype="multipart/form-data">
         <button class="updateButton" type="submit">Update Board</button>
+        </form>
     </form>
 </div>
 
