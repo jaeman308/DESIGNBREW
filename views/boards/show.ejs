@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,12 +27,12 @@
                         <% } %>
                         <form action="/users/<%= userId %>/boards/<%= board._id %>/edit" method="GET" style="display:inline">
                           <button class="editButton" type="submit">Edit</button>
-                        </form>
-              
-                        <form action="/users/<%= userId %>/boards/<%= board._id %>?_method=DELETE" method="POST" style="display:inline">
-                            <button class="deleteButton" type="submit">Delete</button>
-                        </form>
-                    </li>
-                 </div>
+                        </li>
+                    <% }) %>
+                    <% } else { %>
+                      <li>Start brewing up some inspirations!</li>
+                    <% } %>
+             </ul>
+         </div>
 </body>
-</html>
+</html> -->

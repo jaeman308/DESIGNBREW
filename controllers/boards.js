@@ -44,18 +44,16 @@ router.get('/:userId/boards/new', async (req, res) => {
 
 router.get('/:userId/boards/:boardId', async (req, res) => {
     try {
-        const user = await User.findById(req.params.userId);
-        const boardItem = currentUser.boards.id(req.param.boardId);
-        res.render('boards/show.ejs', {
-            boards: user.boards,
-            userName: user.name,
-            userId: user._id,
-            profilePicture: user.profilePicture
-        });
-        } catch (error) {
+        const currenUuser = await User.findById(req.params.userId);
+        const boardItem = currentUser.boards.id(req.params.boardId);
+        res.render('boards/show.ejs')
+        console.log(error);
+        res.redirect('/');
+    } catch (error) {
         console.log(error);
         res.redirect('/');
     }
+    
 });
 
 
