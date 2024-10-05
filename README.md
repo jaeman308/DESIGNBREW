@@ -40,8 +40,9 @@
 - AAU i want to be able to have a page that i will be able to upload inspirations.
 - AAU I want to have an edit and update pages to edit post and to delete a post.
 - AAU I want to be able to see my inspirations based on categories.
-- AAU I want to be able to see a community page where i can like others users inspo pics.
-
+- AAU I want to be able to see a community page.
 ### Stretch Goals
 - Figuring out and trouble shooting how to get the profile picture to upload on the page. Digging more into multer. 
-- Better styling. Looking at how to style the forms to have a better attraction to users. 
+- Better styling. Looking at how to style the forms to have a better attraction to users.
+- Put a heart to like a post. 
+ 
